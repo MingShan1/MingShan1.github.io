@@ -222,6 +222,24 @@
 </div>
   
 
+
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css"  >
+<script>
+  const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    fixed: true,
+    autoplay: false,
+    loop: 'all',
+    order: 'random',
+    preload: 'auto',
+    audio: [{"name":"认真地老去","artist":"Doris小武,Sis晴子","url":"/songs/oldserious.mp3","cover":"/img/singer.jpg"}]
+  });
+</script>
+  
+
   <footer class="mt-5">
   <div class="text-center py-3">
     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
