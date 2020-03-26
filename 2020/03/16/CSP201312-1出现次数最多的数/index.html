@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>标签 ~ Maycode</title>
+  <title>CSP201312 1出现次数最多的数 ~ Maycode</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -43,7 +43,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -119,7 +119,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/tags.jpg') no-repeat center center;
+         style="background: url('/img/article.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -128,6 +128,40 @@
               
             </span>
 
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期一, 三月 16日 2020, 10:54 上午
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    430 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      1 分钟
+                  </span>
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>
+                
+              </p>
             
           </div>
 
@@ -139,24 +173,175 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center tagcloud">
-  <a href="/tags/CCF-CSP/" style="font-size: 30px; color: #337ab7">CCF-CSP</a> <a href="/tags/STL%E5%BA%93%E6%8C%87%E9%92%88%E4%BD%BF%E7%94%A8/" style="font-size: 15px; color: #bbe">STL库指针使用</a> <a href="/tags/github-pages/" style="font-size: 15px; color: #bbe">github pages</a> <a href="/tags/hexo/" style="font-size: 15px; color: #bbe">hexo</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98/" style="font-size: 15px; color: #bbe">动态规划问题</a> <a href="/tags/%E6%97%A0%E8%81%8A/" style="font-size: 15px; color: #bbe">无聊</a> <a href="/tags/%E6%B7%B1%E6%90%9C/" style="font-size: 15px; color: #bbe">深搜</a> <a href="/tags/%E8%B8%A9%E5%9D%91/" style="font-size: 15px; color: #bbe">踩坑</a>
-</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <p><strong>问题描述</strong></p>
+<blockquote>
+<p>  给定n个正整数，找出它们中出现次数最多的数。如果这样的数有多个，请输出其中最小的一个。</p>
+</blockquote>
+<p><strong>输入格式</strong></p>
+<blockquote>
+<p>输入的第一行只有一个正整数n(1 ≤ n ≤ 1000)，表示数字的个数。<br>输入的第二行有n个整数s1, s2, …, sn (1 ≤ si ≤ 10000, 1 ≤ i ≤ n)。相邻的数用空格分隔。</p>
+</blockquote>
+<p><strong>输出格式</strong></p>
+<blockquote>
+<p>   输出这n个次数中出现次数最多的数。如果这样的数有多个，输出其中最小的一个。</p>
+</blockquote>
+<p><strong>样例输入</strong></p>
+<blockquote>
+<p>6<br>10 1 10 20 30 20</p>
+</blockquote>
+<p><strong>样例输出</strong></p>
+<blockquote>
+<p>10</p>
+</blockquote>
+<p><strong>解题思路</strong></p>
+<blockquote>
+<p>用一个升序的集合保存出现次数相同的数。每当有出现次数更多的数，将集合清空，并将当前的数加入。最后集合的第一个元素即为所求解。</p>
+</blockquote>
+<p><strong>参考代码</strong></p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;set&gt;
+using namespace std;
+int a[10005];//存储输入数据
+int b[10005];//存储每个数的个数 
+int n = 0, maxx = 0;
+set&lt;int, less&lt;int&gt; &gt; s;//集合排序从大到小 
+int main()
+{
+    cin &gt;&gt; n;
+    for (int i =0; i &lt; n; i++)
+    {
+        cin &gt;&gt; a[i];
+        b[a[i]] ++;
+    } 
+    for (int i =1 ; i &lt;= 10000; i++)
+    {
+        if (b[i] &gt; maxx) {
+            maxx = b[i]; 
+            s.clear();//清空集合原有的数，保存出现次数更多的数 
+            s.insert(i);
+        }
+        if (b[i] == maxx) {//相同出现次数，加入集合 
+            s.insert(i);
+        }
+    }
+    cout &lt;&lt; *s.begin();
+    return 0;
+ } </code></pre><p><strong>更简便方法</strong></p>
+<blockquote>
+<p>不用集合。从头到尾遍历数组b找到的第一个出现次数最大的数即为所求答案。因为是按数字升序遍历，即使后面有出现次数相同的数，最小数的也是最先出现的那一个。</p>
+</blockquote>
 
-              </div>
             </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CCF-CSP/">CCF-CSP</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/18/CSP201312-2ISBN%E5%8F%B7%E7%A0%81/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">CSP201312 2ISBN号码</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/03/15/CSP201312-5Iamstuck/">
+                        <span class="hidden-mobile">CSP201312 5Iamstuck!</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  
+                  
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2020/03/16/CSP201312-1出现次数最多的数/';
+        this.page.identifier = '/2020/03/16/CSP201312-1出现次数最多的数/';
+      };
+      var oldLoad = window.onload;
+      window.onload = function () {
+        var d = document, s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        oldLoad && oldLoad();
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments
+        powered by Disqus.</a></noscript>
+  </div>
+
+
+                </div>
+              
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -280,6 +465,59 @@
 
 
 
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
@@ -328,7 +566,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签&nbsp;",
+        "CSP201312 1出现次数最多的数&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

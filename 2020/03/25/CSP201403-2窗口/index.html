@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>使用hexo博客搭建过程遇到的问题(待后续使用补充) ~ Maycode</title>
+  <title>CSP201403 2窗口 ~ Maycode</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -132,7 +132,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期三, 三月 4日 2020, 12:50 下午
+                  星期三, 三月 25日 2020, 4:55 下午
                 </p>
               
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    508 字
+                    1.3k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      5 分钟
                   </span>
                 
 
@@ -184,17 +184,128 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <p><strong>1.</strong><br>建立与你用户名对应的仓库，仓库名必须为<strong>【user_name.github.io】</strong>。<br><strong>仓库名中的user_name必须和用户名相一致。</strong>在一年多前试着搭建了博客，当时没意识到这个问题的必要性与严重性，user_name随意的使用了其他名称，导致后期部署时，出现前端某张图片不能从github成功获取的情况。</p>
+              <p><strong>问题描述</strong></p>
 <blockquote>
-<ul>
-<li>如果你的仓库名为用户名.github.io的话，会自动开启GitHub Pages功能，且所有提交到master分支的代码，会当做网站内容被挂载起来，且网站访问地址为http://用户名.github.io</li>
-</ul>
+<p>   在某图形操作系统中,有 N 个窗口,每个窗口都是一个两边与坐标轴分别平行的矩形区域。窗口的边界上的点也属于该窗口。窗口之间有层次的区别,在多于一个窗口重叠的区域里,只会显示位于顶层的窗口里的内容。<br>　　当你点击屏幕上一个点的时候,你就选择了处于被点击位置的最顶层窗口,并且这个窗口就会被移到所有窗口的最顶层,而剩余的窗口的层次顺序不变。如果你点击的位置不属于任何窗口,则系统会忽略你这次点击。<br>　　现在我们希望你写一个程序模拟点击窗口的过程。</p>
 </blockquote>
-<p><strong>2.</strong><br>仓库名命名错误，改回正确的名称会面临很多遗留的问题。我选择<a href="https://blog.csdn.net/wq6ylg08/article/details/88789501" target="_blank" rel="noopener">删除仓库</a>再重建。<br>参考<a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">该博客</a>花了半个多小时重新搭建，此时开启本地预览服务以及部署到github上后均无任何问题。</p>
-<p><strong>3.</strong><br>最开始搭建的的时候，建议先将想要的主题在本地配置好，预览无任何问题再，再部署到github上（上传文章也是如此），如果一边修改参数一边查看GitHub Pages的情况有可能会遇到一些不必要的问题。</p>
-<p><strong>4.</strong><br>一些命令<br>hexo new “title” 新建文章(md文件)，title为文章的标题<br>hexo new page “pagename” 新建网页，pagename为网页的名称<br>hexo clean 清除部署的緩存<br>hexo n == hexo new 新建一篇文章<br>hexo g == hexo generate 生成静态页面<br>hexo s == hexo server 本地部署，可预览网站，默认端口为4000，浏览器输入localhost:4000即可进入网站进行预览，回到git-bash按ctrl+c退出预览(退出后localhost:4000失效)<br>hexo d == hexo deploy 将网站部署到GitHub<br>hexo g -d 生成页面并部署到GitHub<br>hexo g -s 生成页面并本地部署进行预览  </p>
-<p><strong>待解决：</strong>about页面，微信二维码图片在本地预览能够悬浮出来，打开网站后无法悬浮出来。</p>
-
+<p><strong>输入格式</strong></p>
+<blockquote>
+<p>输入的第一行有两个正整数,即 N 和 M。(1 ≤ N ≤ 10,1 ≤ M ≤ 10)<br>接下来 N 行按照从最下层到最顶层的顺序给出 N 个窗口的位置。 每行包含四个非负整数 x1, y1, x2, y2,表示该窗口的一对顶点坐标分别为 (x1, y1) 和 (x2, y2)。保证 x1 &lt; x2,y1 &lt; y2。<br>接下来 M 行每行包含两个非负整数 x, y,表示一次鼠标点击的坐标。<br>题目中涉及到的所有点和矩形的顶点的 x, y 坐标分别不超过 2559 和 1439。</p>
+</blockquote>
+<p><strong>输出格式</strong></p>
+<blockquote>
+<p>   输出包括 M 行,每一行表示一次鼠标点击的结果。如果该次鼠标点击选择了一个窗口,则输出这个窗口的编号(窗口按照输入中的顺序从 1 编号到 N);如果没有,则输出”IGNORED”(不含双引号)。</p>
+</blockquote>
+<p><strong>样例输入</strong></p>
+<blockquote>
+<p>3 4<br>0 0 4 4<br>1 1 5 5<br>2 2 6 6<br>1 1<br>0 0<br>4 4<br>0 5</p>
+</blockquote>
+<p><strong>样例输出</strong></p>
+<blockquote>
+<p>2<br>1<br>1<br>IGNORED</p>
+</blockquote>
+<p><strong>样例说明</strong></p>
+<blockquote>
+<p>   第一次点击的位置同时属于第 1 和第 2 个窗口,但是由于第 2 个窗口在上面,它被选择并且被置于顶层。<br>　　第二次点击的位置只属于第 1 个窗口,因此该次点击选择了此窗口并将其置于顶层。现在的三个窗口的层次关系与初始状态恰好相反了。<br>　　第三次点击的位置同时属于三个窗口的范围,但是由于现在第 1 个窗口处于顶层,它被选择。<br>　　最后点击的 (0, 5) 不属于任何窗口。</p>
+</blockquote>
+<p><strong>解题思路：</strong></p>
+<blockquote>
+<p>每次点击都从最顶层开始检查。由于涉及到了中间删除加入首部等操作，最先想到了使用链表。<br>对STL库中的链表操作不太熟悉顺带复习一波。<br>1.<a href="https://www.cnblogs.com/renyuan/archive/2013/05/21/3091524.html" target="_blank" rel="noopener">c++标准库中，含有链表的类list</a>;<br>2.<a href="https://www.cnblogs.com/maluning/p/8570717.html" target="_blank" rel="noopener">C++迭代器的使用和操作总结</a>;</p>
+</blockquote>
+<p><strong>参考代码</strong></p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;list&gt;
+using namespace std;
+int flag = 0;
+int pos[10][2];
+struct node {//窗口结构体 
+    int num;//输入序号 
+    int a[4];//4个点 
+};
+list&lt;node&gt; pag; 
+int main()
+{
+    int N, M;//窗口数，点击次
+    cin &gt;&gt; N &gt;&gt; M; 
+    //输入窗口坐标 x1 y1 x2 y2
+    for  (int i = 0; i &lt; N; i++) {
+        node x;
+        x.num = i + 1;
+        for (int j = 0; j &lt; 4; j++) {
+            cin &gt;&gt; x.a[j];
+        }
+        pag.push_back(x);
+    }
+    //输入点 
+    for  (int i = 0; i &lt; M; i++) {
+        cin &gt;&gt; pos[i][0] &gt;&gt; pos[i][1];
+    }
+    pag.reverse();//链表翻转，最后输入的才是最顶层 
+    //对输入的点从第一个窗口依次判断 
+    list&lt;node&gt;::iterator it;//定义迭代器变量命 
+    for (int i = 0; i &lt; M; i++) {
+        flag = 0;//查找时标志位置0 
+        for (it = pag.begin(); it != pag.end(); it++) {
+            if ( (pos[i][0] &gt;= it-&gt;a[0]) &amp;&amp; (pos[i][1] &gt;= it-&gt;a[1]) &amp;&amp; (pos[i][0] &lt;= it-&gt;a[2]) &amp;&amp; (pos[i][1] &lt;= it-&gt;a[3])) {
+                cout &lt;&lt; it-&gt;num &lt;&lt; endl;
+                flag = 1;//找到 
+                node x = *it;//返回迭代器it指向的元素
+                pag.push_front(x); //加入到开始  
+                pag.erase(it);//删除当前节点 
+                break;
+            }
+        }
+        if (flag == 0) {//未找到可点击窗口 
+            cout &lt;&lt; &quot;IGNORED&quot; &lt;&lt; endl;//不要忘了加回车！
+        }
+    } 
+    return 0;
+ } </code></pre><p><strong>法二</strong></p>
+<blockquote>
+<p>依照题目思路，将最末尾看作最顶层。可以用动态数组实现，选中了某一层就把该层的数据添加到数组末尾，再把数组中该层删除即可。</p>
+</blockquote>
+<p><strong>参考代码</strong></p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int pos[10][2]; 
+struct Window{
+    int num;
+    int x1,y1;
+    int x2,y2;
+};
+vector&lt;Window&gt; pag;
+int N,M;
+int main(){
+    cin &gt;&gt; N &gt;&gt; M;
+    //输入坐标 
+    for (int i = 0; i &lt; N; i++) {
+        Window x;
+        x.num = i + 1; 
+        cin &gt;&gt; x.x1 &gt;&gt; x.y1 &gt;&gt; x.x2 &gt;&gt; x.y2;
+        pag.push_back(x);
+    }
+    //输入点 
+    for (int i = 0; i &lt; M; i++) {
+        cin &gt;&gt; pos[i][0] &gt;&gt; pos[i][1];
+    } 
+    //对每个点从尾（顶层）到头查找 
+    for (int i = 0; i &lt; M; i++) {
+        int j;
+        for (j = pag.size() - 1; j &gt;=0; j--) {
+            if ((pos[i][0] &gt;= pag[j].x1) &amp;&amp; (pos[i][1] &gt;= pag[j].y1) &amp;&amp; (pos[i][0] &lt;= pag[j].x2) &amp;&amp; (pos[i][1] &lt;= pag[j].y2) ) {
+                cout &lt;&lt; pag[j].num &lt;&lt; endl;
+                pag.push_back(pag[j]);//加入末尾（顶层）
+                pag.erase(pag.begin() + j);//删除原来的元素 
+                break; 
+            }
+        }
+        if (j &lt; 0) {//未找到 
+            cout &lt;&lt; &quot;IGNORED&quot; &lt;&lt; endl;
+        }
+    } 
+    return 0;
+}</code></pre>
             </div>
             <hr>
             <div>
@@ -203,7 +314,7 @@
                   <span>
                 <i class="iconfont icon-inbox"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>
                       &nbsp;
                     
                   </span>&nbsp;&nbsp;
@@ -212,11 +323,9 @@
                   <span>
                 <i class="iconfont icon-tag"></i>
                     
-                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
+                      <a class="hover-with-bg" href="/tags/CCF-CSP/">CCF-CSP</a>
                     
-                      <a class="hover-with-bg" href="/tags/github-pages/">github pages</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>
+                      <a class="hover-with-bg" href="/tags/STL%E5%BA%93%E6%8C%87%E9%92%88%E4%BD%BF%E7%94%A8/">STL库指针使用</a>
                     
                   </span>
                 
@@ -229,9 +338,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/15/CSP201312-5Iamstuck/">
+                      <a href="/2020/03/25/CSP201403-1%E7%9B%B8%E5%8F%8D%E6%95%B0/">
                         <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">CSP201312 5Iamstuck!</span>
+                        <span class="hidden-mobile">CSP201403 1相反数</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -239,8 +348,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/03/04/%E8%BF%99%E4%B8%AA%E4%BA%BA%E5%BE%88%E6%87%92%E4%BB%80%E4%B9%88%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%95%99%E4%B8%8B/">
-                        <span class="hidden-mobile">这个人很懒什么也没有留下</span>
+                      <a href="/2020/03/22/CSP201312-4%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0/">
+                        <span class="hidden-mobile">CSP201312 4有趣的数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -259,8 +368,8 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2020/03/04/使用hexo博客搭建过程遇到的问题-待后续使用补充/';
-        this.page.identifier = '/2020/03/04/使用hexo博客搭建过程遇到的问题-待后续使用补充/';
+        this.page.url = 'http://yoursite.com/2020/03/25/CSP201403-2窗口/';
+        this.page.identifier = '/2020/03/25/CSP201403-2窗口/';
       };
       var oldLoad = window.onload;
       window.onload = function () {
@@ -523,7 +632,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "使用hexo博客搭建过程遇到的问题(待后续使用补充)&nbsp;",
+        "CSP201403 2窗口&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

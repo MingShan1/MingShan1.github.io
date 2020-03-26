@@ -13,26 +13,30 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   <title>Maycode</title>
 
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
 
-  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
 
-<link rel="stylesheet" href="/css/main.css"  >
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
 
 
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -115,7 +119,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/mp.jpg')no-repeat center center;
+         style="background: url('/img/7.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -140,7 +144,8 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5 z-depth-3" id="board"
+          style=margin-top:0>
           
           <div class="container">
             <div class="row">
@@ -151,9 +156,359 @@
   <div class="row mx-auto index-card">
     
     
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/25/CSP201403-1%E7%9B%B8%E5%8F%8D%E6%95%B0/">
+        <p class="h4 index-header">CSP201403 1相反数</p>
+      </a>
+
+      <a href="/2020/03/25/CSP201403-1%E7%9B%B8%E5%8F%8D%E6%95%B0/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">问题描述
+
+   有 N 个非零且各不相同的整数。请你编一个程序求出它们中有多少对相反数(a 和 -a 为一对相反数)。
+
+输入格式
+
+第一行包含一个正整数 N。(1 ≤ N ≤ 500)。第二行为 N 个用单个空格隔开的非零整数,每个数的绝对值不超过1000,保证这些整数各不相同。
+
+输出格式
+
+   只输出一个整数,即这 N 个数中包含多少对相反数。
+
+样例输入
+
+51 2 3 -1 -2
+
+样例输出
+
+2
+
+参考代码
+#include&lt;iostream&gt;
+#include&lt;math.h&gt;
+using namespace std;
+int a[500];
+int b</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CCF-CSP/">CCF-CSP</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/25/CSP201403-2%E7%AA%97%E5%8F%A3/">
+        <p class="h4 index-header">CSP201403 2窗口</p>
+      </a>
+
+      <a href="/2020/03/25/CSP201403-2%E7%AA%97%E5%8F%A3/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">问题描述
+
+   在某图形操作系统中,有 N 个窗口,每个窗口都是一个两边与坐标轴分别平行的矩形区域。窗口的边界上的点也属于该窗口。窗口之间有层次的区别,在多于一个窗口重叠的区域里,只会显示位于顶层的窗口里的内容。　　当你点击屏幕上一个点的时候,你就选择了处于被点击位置的最顶层窗口,并且这个窗口就会被移到所有窗口的最顶层,而剩余的窗口的层次顺序不变。如果你点击的位置不属于任何窗口,则系统会忽略你这次点击。　　现在我们希望你写一个程序模拟点击窗口的过程。
+
+输入格式
+
+输入的第一行有两个正整数,即 N 和 M。(1 ≤ N ≤ 10,1 ≤ M ≤ 10)接下来 N 行按照从最下层到最顶层的顺序</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CCF-CSP/">CCF-CSP</a>&nbsp;
+          
+            <a href="/tags/STL%E5%BA%93%E6%8C%87%E9%92%88%E4%BD%BF%E7%94%A8/">STL库指针使用</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/22/CSP201312-4%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0/">
+        <p class="h4 index-header">CSP201312 4有趣的数</p>
+      </a>
+
+      <a href="/2020/03/22/CSP201312-4%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">问题描述
+
+  我们把一个数称为有趣的，当且仅当：　　1. 它的数字只包含0, 1, 2, 3，且这四个数字都出现过至少一次。　　2. 所有的0都出现在所有的1之前，而所有的2都出现在所有的3之前。　　3. 最高位数字不为0。　　因此，符合我们定义的最小的有趣的数是2013。除此以外，4位的有趣的数还有两个：2031和2301。　　请计算恰好有n位的有趣的数的个数。由于答案可能非常大，只需要输出答案除以1000000007的余数。
+
+输入格式
+
+   输入只有一行，包括恰好一个正整数n (4 ≤ n ≤ 1000)。
+
+输出格式
+
+   输出只有一行，包括恰好n 位的整数中有趣的数的个数除以1</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CCF-CSP/">CCF-CSP</a>&nbsp;
+          
+            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98/">动态规划问题</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/19/CSP201312-3%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/">
+        <p class="h4 index-header">CSP201312 3最大矩形</p>
+      </a>
+
+      <a href="/2020/03/19/CSP201312-3%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">问题描述
+
+　 在横轴上放了n个相邻的矩形，每个矩形的宽度是1，而第i（1 ≤ i ≤ n）个矩形的高度是hi。这n个矩形构成了一个直方图。例如，下图中六个矩形的高度就分别是3, 1, 6, 5, 2, 3。　　请找出能放在给定直方图里面积最大的矩形，它的边要与坐标轴平行。对于上面给出的例子，最大矩形如下图所示的阴影部分，面积是10。
+
+输入格式
+
+　  第一行包含一个整数n，即矩形的数量(1 ≤ n ≤ 1000)。　　第二行包含n 个整数h1, h2, … , hn，相邻的数之间由空格分隔。(1 ≤ hi ≤ 10000)。hi是第i个矩形的高度。
+
+输出格式
+
+　 输出一行，包含一个整数</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CCF-CSP/">CCF-CSP</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/18/CSP201312-2ISBN%E5%8F%B7%E7%A0%81/">
+        <p class="h4 index-header">CSP201312 2ISBN号码</p>
+      </a>
+
+      <a href="/2020/03/18/CSP201312-2ISBN%E5%8F%B7%E7%A0%81/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">问题描述
+
+  每一本正式出版的图书都有一个ISBN号码与之对应，ISBN码包括9位数字、1位识别码和3位分隔符，其规定格式如“x-xxx-xxxxx-x”，其中符号“-”是分隔符（键盘上的减号），最后一位是识别码，例如0-670-82162-4就是一个标准的ISBN码。ISBN码的首位数字表示书籍的出版语言，例如0代表英语；第一个分隔符“-”之后的三位数字代表出版社，例如670代表维京出版社；第二个分隔之后的五位数字代表该书在出版社的编号；最后一位为识别码。　　识别码的计算方法如下：　　首位数字乘以1加上次位数字乘以2……以此类推，用所得的结果mod 11，所得的余数即为识别码，如果余数为1</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CCF-CSP/">CCF-CSP</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/16/CSP201312-1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E6%95%B0/">
+        <p class="h4 index-header">CSP201312 1出现次数最多的数</p>
+      </a>
+
+      <a href="/2020/03/16/CSP201312-1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E6%95%B0/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">问题描述
+
+  给定n个正整数，找出它们中出现次数最多的数。如果这样的数有多个，请输出其中最小的一个。
+
+输入格式
+
+输入的第一行只有一个正整数n(1 ≤ n ≤ 1000)，表示数字的个数。输入的第二行有n个整数s1, s2, …, sn (1 ≤ si ≤ 10000, 1 ≤ i ≤ n)。相邻的数用空格分隔。
+
+输出格式
+
+   输出这n个次数中出现次数最多的数。如果这样的数有多个，输出其中最小的一个。
+
+样例输入
+
+610 1 10 20 30 20
+
+样例输出
+
+10
+
+解题思路
+
+用一个升序的集合保存出现次数相同的数。每当有出现次数更多的数，将集合清空，并将当前的数加入。最后集合</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CCF-CSP/">CCF-CSP</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/15/CSP201312-5Iamstuck/">
+        <p class="h4 index-header">CSP201312 5Iamstuck!</p>
+      </a>
+
+      <a href="/2020/03/15/CSP201312-5Iamstuck/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">问题描述
+
+给定一个R行C列的地图，地图的每一个方格可能是’#’, ‘+’, ‘-‘, ‘|’, ‘.’, ‘S’, ‘T’七个字符中的一个，分别表示如下意思：‘#’: 任何时候玩家都不能移动到此方格；‘+’: 当玩家到达这一方格后，下一步可以向上下左右四个方向相邻的任意一个非’#’方格移动一格；‘-‘: 当玩家到达这一方格后，下一步可以向左右两个方向相邻的一个非’#’方格移动一格；‘|’: 当玩家到达这一方格后，下一步可以向上下两个方向相邻的一个非’#’方格移动一格；‘.’: 当玩家到达这一方格后，下一步只能向下移动一格。如果下面相邻的方格为’#’，则玩家不能再移动；‘S’: 玩家的初始位置</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CCF-CSP/">CCF-CSP</a>&nbsp;
+          
+            <a href="/tags/%E6%B7%B1%E6%90%9C/">深搜</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
       <div class="col-12 col-md-4 m-auto">
         <a href="/2020/03/04/%E4%BD%BF%E7%94%A8hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98-%E5%BE%85%E5%90%8E%E7%BB%AD%E4%BD%BF%E7%94%A8%E8%A1%A5%E5%85%85/" target="_self">
-          <img src="/img/djout.jpg" srcset="/img/loading.gif" alt="使用hexo博客搭建过程遇到的问题(待后续使用补充)" class="index-img img-fluid rounded index-thumbnails">
+          <img src="/img/djout.jpg" srcset="/img/loading.gif" alt="使用hexo博客搭建过程遇到的问题(待后续使用补充)"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
@@ -174,9 +529,7 @@
 如果你的仓库名为用户名.github.io的话，会自动开启GitHub Pages功能，且所有提交到master分支的代码，会当做网站内容被挂载起来，且网站访问地址为http://用户名.github.io
 
 
-2.仓库名命名错误，改回正确的名称会面临很多遗留的问题。我选择删除仓库再重建。参考该博客花了半个多小时重新搭建，此时开启本地预览服务以及部署到github上后均无任何问题。
-3.最开始搭建的的时候，建议先将想要的主题在本地配置好，预览无任何问题再，再部署到github上（上传文章也是如此），如果一边修改参数一边查看GitHub Pages的情况有可能会遇到一些不必要的问题。
-4.一些命令hexo new “title” 新建文章(md文件)，title为文章的标题hexo </div>
+2.仓库名命名错误，改回正确的名称会面临很多遗留的问题。我选择删除仓库再重建。</div>
         </div>
       </a>
 
@@ -187,17 +540,17 @@
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA">博客搭建</a>&nbsp;
+            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/hexo">hexo</a>&nbsp;
+            <a href="/tags/hexo/">hexo</a>&nbsp;
           
-            <a href="/tags/github%20pages">github pages</a>&nbsp;
+            <a href="/tags/github-pages/">github pages</a>&nbsp;
           
-            <a href="/tags/%E8%B8%A9%E5%9D%91">踩坑</a>&nbsp;
+            <a href="/tags/%E8%B8%A9%E5%9D%91/">踩坑</a>&nbsp;
           
         
       </div>
@@ -207,7 +560,7 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 mx-auto index-info">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/04/%E8%BF%99%E4%B8%AA%E4%BA%BA%E5%BE%88%E6%87%92%E4%BB%80%E4%B9%88%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%95%99%E4%B8%8B/">
         <p class="h4 index-header">这个人很懒什么也没有留下</p>
       </a>
@@ -231,7 +584,7 @@
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E6%97%A0%E8%81%8A">无聊</a>&nbsp;
+            <a href="/tags/%E6%97%A0%E8%81%8A/">无聊</a>&nbsp;
           
         
       </div>
@@ -280,76 +633,110 @@
 </div>
   
 
-
+  
     <!-- APlayer 音乐播放器 -->
     <div id="aplayer"></div>
-    <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css"  >
-<script>
-  const ap = new APlayer({
-    container: document.getElementById('aplayer'),
-    fixed: true,
-    autoplay: false,
-    loop: 'all',
-    order: 'random',
-    preload: 'auto',
-    audio: [{"name":"认真地老去","artist":"Doris小武,Sis晴子","url":"/songs/oldserious.mp3","cover":"/img/singer.jpg"}]
-  });
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoad = window.onload;
+  window.onload = function () {
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#b7daff',
+      preload: 'none',
+      audio: [{"name":"认真地老去","artist":"Doris小武,Sis晴子","url":"/songs/oldserious.mp3","cover":"/img/singer.jpg"}]
+    });
+    oldLoad && oldLoad();
+  }
 </script>
+
+  
+
   
 
   <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
+  <!-- 备案信息 -->
+  <div>
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证123456号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+        rel="nofollow noopener"
+        class="police-beian"
+        target="_blank"
+      >
+        <span class="police-beian-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备12345678号</span>
+      </a>
+  </div>
   
-    <!-- 不蒜子统计PV -->
-    
-    &nbsp;<span id="busuanzi_container_site_pv"></span>总访问量 
-          <span id="busuanzi_value_site_pv"></span> 次&nbsp;
-  
-  
-    <!-- 不蒜子统计UV -->
-    
-    &nbsp;<span id="busuanzi_container_site_uv"></span>总访客数 
-            <span id="busuanzi_value_site_uv"></span> 人&nbsp;
-  
-  <br>
-
 
 
     
-
-
-    <!-- cnzz Analytics icon -->
-    
-
   </div>
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js" ></script>
-<script src="/lib/popper/popper.min.js" ></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
-<script src="/js/main.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
 
-  <script src="/js/lazyload.js" ></script>
-
-
-
-
-
-  <script src="/lib/smoothscroll/SmoothScroll.min.js" ></script>
+  <script  src="/js/lazyload.js" ></script>
 
 
 
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
 
 
 <!-- Plugins -->
@@ -363,12 +750,13 @@
 
   
 
-  <!-- cnzz Analytics -->
+  
+
   
 
 
 
-  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -378,7 +766,7 @@
 
 
 
-  <script src="/lib/typed/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -398,7 +786,7 @@
 
 
 
-  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
@@ -415,7 +803,7 @@
 
 
 
-  <script src="/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -427,7 +815,7 @@
 
 
 
-  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {
@@ -442,6 +830,56 @@
 
 
 
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
 
 
 
